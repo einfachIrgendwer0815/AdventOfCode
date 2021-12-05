@@ -1,24 +1,3 @@
-class Group():
-    def __init__(self, length=3, index_offset=1):
-        self.length = length
-        self.index_offset = index_offset
-
-        self.values = []
-
-    def addValue(self, value):
-        if self.isFull() == False:
-            self.values.append(value)
-
-    def isFull(self):
-        return True if len(self.values) >= self.length else False
-
-    def indexIsInGroup(self, index):
-        offsetIndex = index + self.index_offset
-        if (offsetIndex % 4) != 0:
-            return True
-        else:
-            return False
-
 file = "input.txt"
 
 values = []
