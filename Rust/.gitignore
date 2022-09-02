@@ -1,0 +1,6 @@
+*
+!*.txt
+!*.rs
+!*/
+
+!.gitignore
