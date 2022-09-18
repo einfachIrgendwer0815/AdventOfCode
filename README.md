@@ -1,6 +1,6 @@
 # My Advent of Code solutions
 
-This repository is a collection of solutions for the [Advent of Code](https://adventofcode.com). At the moment I am trying to solve all puzzles from 2021 in Python and Java. In the future I want to extend it with more languages like Go, Kotlin or Ruby and also for previous years.
+This repository is a collection of solutions for the [Advent of Code](https://adventofcode.com). At the moment I am trying to solve all puzzles from 2021 in Python, Java and Rust. In the future I want to extend it with more languages like Go, Kotlin or Ruby and also for previous years and following years.
 
 
 
