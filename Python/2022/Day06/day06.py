@@ -2,25 +2,23 @@ file = "input.txt"
 
 def find_marker(text, distincts):
     buf_size = distincts - 1
-    buffer = ['' for _ in range(buf_size)]
     double_counter = 0 # keeps track of how many new character are required to push out the latest double character
 
-    letters = 0
+    for i in range(buf_size-1, -1, -1):
+        if text[i] in text[i+1:buf_size]:
+            double_counter = i+1
+            break
 
-    for l in text:
-        letters += 1
+    for index, l in enumerate(text[buf_size:], start=buf_size):
         if double_counter > 0:
             double_counter -= 1
 
-        for index, item in enumerate(buffer):
-            if item == l and double_counter < (index+1):
-                double_counter = index + 1
+        for i in range(buf_size):
+            if text[index - buf_size + i] == l and double_counter < (i+1):
+                double_counter = i + 1
 
-        if double_counter == 0 and letters >= distincts:
-            return letters
-
-        buffer.pop(0)
-        buffer.append(l)
+        if double_counter == 0:
+            return index + 1
 
 
 if __name__ == "__main__":
