@@ -1,4 +1,3 @@
-use std::fs;
 use std::collections::VecDeque;
 
 struct Group {
@@ -14,15 +13,21 @@ impl Group {
             first: None,
             second: None,
             third: None,
-            count: 0
+            count: 0,
         }
     }
 
     pub fn push(&mut self, value: u32) -> Result<(), &'static str> {
         match self.count {
-            0u8 => { self.first = Some(value); },
-            1u8 => { self.second = Some(value); },
-            2u8 => { self.third = Some(value); },
+            0u8 => {
+                self.first = Some(value);
+            }
+            1u8 => {
+                self.second = Some(value);
+            }
+            2u8 => {
+                self.third = Some(value);
+            }
             _ => {
                 return Err("Group full");
             }
@@ -34,32 +39,34 @@ impl Group {
     }
 
     pub fn is_full(&self) -> bool {
-        if self.count == 3 {
-            true
-        } else {
-            false
-        }
+        self.count == 3
     }
 
     pub fn unwrap(self) -> Result<(u32, u32, u32), &'static str> {
         if !self.is_full() {
             Err("Group not full")
         } else {
-            Ok((self.first.unwrap(), self.second.unwrap(), self.third.unwrap()))
+            Ok((
+                self.first.unwrap(),
+                self.second.unwrap(),
+                self.third.unwrap(),
+            ))
         }
     }
 }
 
-fn main() {
+pub fn run() -> u32 {
     let mut depth = Vec::<u32>::new();
-    let input = fs::read_to_string("input.txt").expect("Could not read input.");
+    let input = include_str!("input.txt");
 
-    for i in input.split("\n") {
-        if i == "" { continue; }
+    for i in input.split('\n') {
+        if i.is_empty() {
+            continue;
+        }
         depth.push(i.parse().unwrap());
     }
 
-    println!("{}", count_group_increases(&depth))
+    count_group_increases(&depth)
 }
 
 fn count_group_increases(depths: &Vec<u32>) -> u32 {

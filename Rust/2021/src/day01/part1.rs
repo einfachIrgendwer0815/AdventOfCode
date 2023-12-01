@@ -1,15 +1,15 @@
-use std::fs;
-
-fn main() {
+pub fn run() -> u32 {
     let mut depth = Vec::<u32>::new();
-    let input = fs::read_to_string("input.txt").expect("Could not read input.");
+    let input = include_str!("input.txt");
 
-    for i in input.split("\n") {
-        if i == "" { continue; }
+    for i in input.split('\n') {
+        if i.is_empty() {
+            continue;
+        }
         depth.push(i.parse().unwrap());
     }
 
-    println!("{}", count_increases(&depth))
+    count_increases(&depth)
 }
 
 fn count_increases(depths: &Vec<u32>) -> u32 {

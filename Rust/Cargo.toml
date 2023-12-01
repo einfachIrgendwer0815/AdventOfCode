@@ -1,0 +1,19 @@
+[workspace]
+members = ["src/traits"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[package]
+name = "advent-of-code"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+aoc-traits = { path = "src/traits" }
+clap = "4.4.10"
+year-2021 = { path = "2021" }
+year-2023 = { path = "2023" }
