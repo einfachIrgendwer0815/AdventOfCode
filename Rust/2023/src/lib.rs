@@ -3,6 +3,7 @@ use aoc_traits::Part;
 use aoc_traits::Year;
 
 mod day01;
+mod day02;
 
 pub struct Year2023;
 
@@ -16,6 +17,10 @@ impl Year for Year2023 {
             1 => Ok(match part {
                 Part::Part1 => Box::new(day01::part1::run()),
                 Part::Part2 => Box::new(day01::part2::run()),
+            }),
+            2 => Ok(match part {
+                Part::Part1 => Box::new(day02::part1::run()),
+                Part::Part2 => Box::new(day02::part2::run()),
             }),
             _ => Err(NotFound {
                 year: 2023,

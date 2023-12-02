@@ -1,0 +1,101 @@
+pub fn run() -> u32 {
+    let input = include_str!("input.txt");
+    possible_games(input.lines())
+}
+
+fn possible_games<'a, I: Iterator<Item = &'a str>>(lines: I) -> u32 {
+    let mut sum = 0;
+
+    for line in lines {
+        let mut chars = line.chars();
+        let id = parse_id(&mut chars);
+
+        let mut chars = chars.skip(1);
+        let mut possible = true;
+        'set_iter: while let Some(set) = parse_set(&mut chars) {
+            if set.red > 12 || set.green > 13 || set.blue > 14 {
+                possible = false;
+                break 'set_iter;
+            }
+        }
+
+        if possible {
+            sum += id;
+        }
+    }
+
+    sum
+}
+
+fn parse_id<I: Iterator<Item = char>>(line: &mut I) -> u32 {
+    let mut id_chars = String::new();
+    for c in line.skip(5) {
+        if c == ':' {
+            break;
+        }
+
+        id_chars.push(c);
+    }
+
+    id_chars.parse::<u32>().unwrap()
+}
+
+pub(super) fn parse_set<I: Iterator<Item = char>>(line: &mut I) -> Option<CubeSet> {
+    let mut set_text = String::new();
+
+    for c in line {
+        if c == ';' {
+            break;
+        }
+
+        set_text.push(c);
+    }
+
+    if set_text.is_empty() {
+        return None;
+    }
+
+    let mut set = CubeSet::default();
+    for cube in set_text.split(", ") {
+        let cube_info = cube.split_whitespace().collect::<Vec<_>>();
+
+        if cube.len() < 2 {
+            continue;
+        }
+
+        let num = cube_info.first().unwrap().parse::<u32>().unwrap();
+        let cube_color = cube_info.get(1).unwrap();
+
+        match *cube_color {
+            "red" => set.red = num,
+            "green" => set.green = num,
+            "blue" => set.blue = num,
+            _ => unreachable!(),
+        }
+    }
+
+    Some(set)
+}
+
+#[derive(Debug, Default)]
+pub(super) struct CubeSet {
+    pub red: u32,
+    pub green: u32,
+    pub blue: u32,
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn part1() {
+        let input = "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green\n\
+            Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue\n\
+            Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red\n\
+            Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red\n\
+            Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green";
+
+        assert_eq!(possible_games(input.lines()), 8);
+    }
+}
