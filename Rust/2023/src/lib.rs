@@ -2,8 +2,14 @@ use aoc_traits::NotFound;
 use aoc_traits::Part;
 use aoc_traits::Year;
 
-mod day01;
-mod day02;
+mod day01 {
+    pub mod part1;
+    pub mod part2;
+}
+mod day02 {
+    pub mod part1;
+    pub mod part2;
+}
 
 pub struct Year2023;
 
