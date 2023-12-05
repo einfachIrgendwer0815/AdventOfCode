@@ -14,6 +14,10 @@ mod day03 {
     pub mod part1;
     pub mod part2;
 }
+mod day04 {
+    pub mod part1;
+    pub mod part2;
+}
 
 pub struct Year2023;
 
@@ -35,6 +39,10 @@ impl Year for Year2023 {
             3 => Ok(match part {
                 Part::Part1 => Box::new(day03::part1::run()),
                 Part::Part2 => Box::new(day03::part2::run()),
+            }),
+            4 => Ok(match part {
+                Part::Part1 => Box::new(day04::part1::run()),
+                Part::Part2 => Box::new(day04::part2::run()),
             }),
             _ => Err(NotFound {
                 year: 2023,
