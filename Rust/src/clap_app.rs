@@ -4,7 +4,7 @@ pub fn build() -> Command {
     Command::new("advent-of-code")
         .arg(
             Arg::new("year")
-                .value_parser(["2021", "2023"])
+                .value_parser(["2021", "2023", "2024"])
                 .required(true),
         )
         .arg(

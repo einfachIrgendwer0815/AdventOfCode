@@ -6,6 +6,8 @@ mod year;
 mod year_2021;
 #[path = "../2023/mod.rs"]
 mod year_2023;
+#[path = "../2024/mod.rs"]
+mod year_2024;
 
 use year::{Part, Year};
 
@@ -23,6 +25,7 @@ fn main() {
     let year: Box<dyn Year> = match year.as_str() {
         "2021" => Box::new(year_2021::Year2021),
         "2023" => Box::new(year_2023::Year2023),
+        "2024" => Box::new(year_2024::Year2024),
         _ => unreachable!(),
     };
 
