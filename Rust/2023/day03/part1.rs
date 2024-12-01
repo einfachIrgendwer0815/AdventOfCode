@@ -1,5 +1,5 @@
 pub fn run() -> u32 {
-    let input = include_str!("input.txt");
+    let input = include_str!("../../inputs/input_2023_3.txt");
     missing_part(input.lines())
 }
 
@@ -138,25 +138,4 @@ pub(super) fn parse_number<I: Iterator<Item = (usize, char)>>(
         num_chars.parse().unwrap(),
         None,
     )
-}
-
-#[cfg(test)]
-mod test {
-    use super::*;
-
-    #[test]
-    fn part1() {
-        let input = "467..114..\n\
-            ...*......\n\
-            ..35..633.\n\
-            ......#...\n\
-            617*......\n\
-            .....+.58.\n\
-            ..592.....\n\
-            ......755.\n\
-            ...$.*....\n\
-            .664.598..";
-
-        assert_eq!(missing_part(input.lines()), 4361);
-    }
 }

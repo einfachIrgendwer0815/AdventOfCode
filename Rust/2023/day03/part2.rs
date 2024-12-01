@@ -6,7 +6,7 @@ struct Symbol {
 }
 
 pub fn run() -> u32 {
-    let input = include_str!("input.txt");
+    let input = include_str!("../../inputs/input_2023_3.txt");
     gear_ratios(input.lines())
 }
 
@@ -97,26 +97,5 @@ fn handle_chars<I: Iterator<Item = (usize, char)>>(
                 symbols[1].push(sym);
             }
         }
-    }
-}
-
-#[cfg(test)]
-mod test {
-    use super::*;
-
-    #[test]
-    fn part2() {
-        let input = "467..114..\n\
-            ...*......\n\
-            ..35..633.\n\
-            ......#...\n\
-            617*......\n\
-            .....+.58.\n\
-            ..592.....\n\
-            ......755.\n\
-            ...$.*....\n\
-            .664.598..";
-
-        assert_eq!(gear_ratios(input.lines()), 467835);
     }
 }

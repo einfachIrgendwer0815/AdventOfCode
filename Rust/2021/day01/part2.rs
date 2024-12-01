@@ -57,7 +57,7 @@ impl Group {
 
 pub fn run() -> u32 {
     let mut depth = Vec::<u32>::new();
-    let input = include_str!("input.txt");
+    let input = include_str!("../../inputs/input_2021_1.txt");
 
     for i in input.split('\n') {
         if i.is_empty() {

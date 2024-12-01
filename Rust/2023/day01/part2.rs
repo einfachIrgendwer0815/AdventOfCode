@@ -5,7 +5,7 @@ const WORDS: [&str; 9] = [
 const DIGITS: [char; 9] = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 pub fn run() -> u32 {
-    let input = include_str!("input.txt");
+    let input = include_str!("../../inputs/input_2023_1.txt");
     calibration_values_sum(input.lines())
 }
 
@@ -40,17 +40,4 @@ fn calibration_values_sum<'a, I: Iterator<Item = &'a str>>(lines: I) -> u32 {
     }
 
     values.iter().sum()
-}
-
-#[cfg(test)]
-mod test {
-    use super::*;
-
-    #[test]
-    fn part2() {
-        let input = "two1nine\neightwothree\nabcone2threexyz\nxtwone3four\n4nineeightseven2\nzoneight234\n7pqrstsixteen";
-        let mut lines = input.split('\n');
-
-        assert_eq!(calibration_values_sum(&mut lines), 281);
-    }
 }

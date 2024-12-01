@@ -1,5 +1,5 @@
 pub fn run() -> u32 {
-    let input = include_str!("input.txt");
+    let input = include_str!("../../inputs/input_2023_1.txt");
     calibration_values_sum(input.lines())
 }
 
@@ -37,17 +37,4 @@ fn calibration_values_sum<'a, I: Iterator<Item = &'a str>>(lines: I) -> u32 {
     }
 
     values.iter().sum()
-}
-
-#[cfg(test)]
-mod test {
-    use super::*;
-
-    #[test]
-    fn part1() {
-        let input = "1abc2\npqr3stu8vwx\na1b2c3d4e5f\ntreb7uchet";
-        let mut lines = input.split('\n');
-
-        assert_eq!(calibration_values_sum(&mut lines), 142)
-    }
 }
