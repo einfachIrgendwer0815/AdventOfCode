@@ -7,4 +7,5 @@ This repository is a collection of my solutions for the [Advent of Code](https:/
     - 2022: Days 1 to 10
  - Rust
     - 2021: Day 1
-    - (2023)
+    - 2023: Days 1 to 4
+    - (2024)
