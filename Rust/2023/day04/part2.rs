@@ -1,4 +1,4 @@
-use crate::day04::part1::parse_nums;
+use crate::year_2023::day04::part1::parse_nums;
 
 pub fn run() -> u32 {
     let input = include_str!("input.txt");

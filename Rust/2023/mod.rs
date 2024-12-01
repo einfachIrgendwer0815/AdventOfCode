@@ -1,6 +1,5 @@
-use aoc_traits::NotFound;
-use aoc_traits::Part;
-use aoc_traits::Year;
+use crate::error::NotFound;
+use crate::year::{Part, Year};
 
 mod day01 {
     pub mod part1;

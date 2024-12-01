@@ -1,7 +1,13 @@
 mod clap_app;
+mod error;
+mod year;
 
-use aoc_traits::Part;
-use aoc_traits::Year;
+#[path = "../2021/mod.rs"]
+mod year_2021;
+#[path = "../2023/mod.rs"]
+mod year_2023;
+
+use year::{Part, Year};
 
 fn main() {
     let app = clap_app::build().get_matches();

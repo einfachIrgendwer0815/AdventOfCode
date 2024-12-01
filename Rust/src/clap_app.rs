@@ -12,5 +12,9 @@ pub fn build() -> Command {
                 .value_parser(value_parser!(u8).range(1..=25))
                 .required(true),
         )
-        .arg(Arg::new("part").value_parser(value_parser!(u8).range(1..=2)))
+        .arg(
+            Arg::new("part")
+                .value_parser(value_parser!(u8).range(1..=2))
+                .required(true),
+        )
 }
