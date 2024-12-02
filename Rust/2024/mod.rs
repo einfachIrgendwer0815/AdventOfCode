@@ -7,6 +7,12 @@ mod day01 {
     pub mod part2;
 }
 
+mod day02 {
+    pub const INPUT: &str = include_str!("../inputs/input_2024_2.txt");
+    pub mod part1;
+    pub mod part2;
+}
+
 pub struct Year2024;
 
 impl Year for Year2024 {
@@ -19,6 +25,10 @@ impl Year for Year2024 {
             1 => match part {
                 Part::Part1 => Ok(Box::new(day01::part1::run(day01::INPUT))),
                 Part::Part2 => Ok(Box::new(day01::part2::run(day01::INPUT))),
+            },
+            2 => match part {
+                Part::Part1 => Ok(Box::new(day02::part1::run(day02::INPUT))),
+                Part::Part2 => Ok(Box::new(day02::part2::run(day02::INPUT))),
             },
             _ => Err(NotFound {
                 year: 2024,
