@@ -5,7 +5,7 @@ pub trait Year {
     fn run(&self, day: u8, part: Part) -> Result<Box<dyn Display>, Box<dyn Error>>;
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub enum Part {
     Part1,
     Part2,
