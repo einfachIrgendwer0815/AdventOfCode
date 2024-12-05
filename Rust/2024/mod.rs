@@ -18,6 +18,8 @@ impl Year for Year2024 {
             (3, Part::Part2) => Box::new(day03::part2::run(day03::INPUT)),
             (4, Part::Part1) => Box::new(day04::part1::run(day04::INPUT)),
             (4, Part::Part2) => Box::new(day04::part2::run(day04::INPUT)),
+            (5, Part::Part1) => Box::new(day05::part1::run(day05::INPUT)),
+            (5, Part::Part2) => Box::new(day05::part2::run(day05::INPUT)),
             _ => {
                 return Err(NotFound {
                     year: 2024,
@@ -50,6 +52,12 @@ mod day03 {
 
 mod day04 {
     pub const INPUT: &str = include_str!("../inputs/input_2024_4.txt");
+    pub mod part1;
+    pub mod part2;
+}
+
+mod day05 {
+    pub const INPUT: &str = include_str!("../inputs/input_2024_5.txt");
     pub mod part1;
     pub mod part2;
 }
