@@ -26,6 +26,8 @@ impl Year for Year2024 {
             (7, Part::Part2) => Box::new(day07::part2::run(day07::INPUT)),
             (8, Part::Part1) => Box::new(day08::part1::run(day08::INPUT)),
             (8, Part::Part2) => Box::new(day08::part2::run(day08::INPUT)),
+            (9, Part::Part1) => Box::new(day09::part1::run(day09::INPUT)),
+            (9, Part::Part2) => Box::new(day09::part2::run(day09::INPUT)),
             (11, Part::Part1) => Box::new(day11::part1::run(day11::INPUT)),
             (11, Part::Part2) => Box::new(day11::part2::run(day11::INPUT)),
             _ => {
@@ -84,6 +86,12 @@ mod day07 {
 
 mod day08 {
     pub const INPUT: &str = include_str!("../inputs/input_2024_8.txt");
+    pub mod part1;
+    pub mod part2;
+}
+
+mod day09 {
+    pub const INPUT: &str = include_str!("../inputs/input_2024_9.txt");
     pub mod part1;
     pub mod part2;
 }
